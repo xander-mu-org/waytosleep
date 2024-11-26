@@ -34,7 +34,7 @@ export default async function Product({ params: { slug } }) {
     notFound()
   }
 
-  const { layout, relatedProducts } = product
+  const { layout, relatedProducts, variantGroups } = product
 
   return (
     <React.Fragment>
@@ -44,6 +44,22 @@ export default async function Product({ params: { slug } }) {
       <Blocks
         disableTopPadding
         blocks={[
+          {
+            blockType: 'variantGroups',
+            blockName: 'Variant Groups',
+            relationTo: 'variant-groups',
+            introContent: [
+              {
+                type: 'h4',
+                children: [
+                  {
+                    text: 'Variant Groups',
+                  },
+                ],
+              },
+            ],
+            docs: variantGroups,
+          },
           {
             blockType: 'relatedProducts',
             blockName: 'Related Product',
